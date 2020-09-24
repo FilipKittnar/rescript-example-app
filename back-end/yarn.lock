@@ -306,6 +306,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"liquibase@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "liquibase@npm:1.0.1"
+  checksum: d4760559a246a8eee73c3039bac8e213f421fe28b85194335c789338392eecaf2845a2fa4c0113efdce391a0a5efbb89e45d31ca2abb2da2f109f13e60e81833
+  languageName: node
+  linkType: hard
+
 "media-typer@npm:0.3.0":
   version: 0.3.0
   resolution: "media-typer@npm:0.3.0"
@@ -452,6 +459,7 @@ __metadata:
     bs-express: ^1.0.2
     bs-platform: ^8.2.0
     express: ~4.16.1
+    liquibase: ^1.0.1
   languageName: unknown
   linkType: soft
 
