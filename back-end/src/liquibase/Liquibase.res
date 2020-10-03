@@ -9,10 +9,10 @@ let liquibase = ResLiquibase.liquibase({
   password: "postgres",
 })
 
-ResLiquibase.run(liquibase, #update, ()) |> then_(() => {
-  Js.log("Liquibase updare finished successfully")
-  resolve()
-}) |> catch(error => {
-  Js.log2("Liquibase updare failed", error)
-  resolve()
-})
+let update = () => ResLiquibase.run(liquibase, #update, ()) |> then_(() => {
+    Js.log("Liquibase updare finished successfully")
+    resolve()
+  }) |> catch(error => {
+    Js.log2("Liquibase updare failed", error)
+    resolve()
+  }) |> ignore

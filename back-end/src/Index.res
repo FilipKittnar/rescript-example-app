@@ -17,7 +17,10 @@ app->App.listen(
     | exception Js.Exn.Error(e) =>
       e->Js.log
       Node.Process.exit(1)
-    | _ => (`Listening at http://localhost:${port->string_of_int}`)->Js.log
+    | _ => {
+        Liquibase.update()
+        (`Listening at http://localhost:${port->string_of_int}`)->Js.log
+      }
     }
   },
   (),
