@@ -13,6 +13,6 @@ ResLiquibase.run(liquibase, #update, ()) |> then_(() => {
   Js.log("Liquibase updare finished successfully")
   resolve()
 }) |> catch(error => {
-  Js.log2("Liquibase updare failed: error=", error)
+  Js.log2("Liquibase updare failed", error)
   resolve()
 })

@@ -15,3 +15,13 @@
 .history
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+
+# Created by https://www.toptal.com/developers/gitignore/api/reasonml
+# Edit at https://www.toptal.com/developers/gitignore?templates=reasonml
+
+### Reasonml ###
+/lib
+
+# End of https://www.toptal.com/developers/gitignore/api/reasonml
+
+.bsb.lock
