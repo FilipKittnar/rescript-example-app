@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "express": "~4.16.1",
-    "liquibase": "^1.0.1"
+    "liquibase": "^1.0.1",
+    "pg-promise": "^10.6.2"
   },
   "devDependencies": {
     "@glennsl/bs-json": "^5.0.2",
