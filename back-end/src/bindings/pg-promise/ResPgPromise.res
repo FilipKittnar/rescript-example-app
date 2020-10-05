@@ -9,4 +9,4 @@ type connectionConfiguration = {
 type t = (. connectionConfiguration) => database
 
 @bs.module external pgPromise: unit => t = "pg-promise"
-@bs.send external any: (database, string) => Js.Promise.t<list<'a>> = "any"
+@bs.send external any: (database, string) => Js.Promise.t<array<Js.Json.t>> = "any"

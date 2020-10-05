@@ -4,19 +4,16 @@ let app = express()
 
 let port = 3000
 
-app->App.get(~path="/", Middleware.from((_, _) => {
+app->App.get(~path="/person", PromiseMiddleware.from((_, _, res) => {
     open Js.Promise
     Database.database->ResPgPromise.any("select * from person") |> then_(result => {
-      Js.log2("Persons from DB:", result)
-      resolve()
+      let json = Js.Dict.empty()
+      Js.Dict.set(json, "persons", Js.Json.array(result))
+      resolve(res |> Response.status(Response.StatusCode.Ok) |> Response.sendJson(Js.Json.object_(json)))
     }) |> catch(error => {
-      Js.log2("Failed to get Persons from DB:", error)
-      resolve()
-    }) |> ignore
-
-    let json = Js.Dict.empty()
-    Js.Dict.set(json, "success", Js.Json.boolean(true))
-    Response.sendJson(Js.Json.object_(json))
+      Js.log2("Failed to get Persons from DB", error)
+      resolve(res |> Response.sendStatus(Response.StatusCode.InternalServerError))
+    })
   }))
 
 app->App.listen(
