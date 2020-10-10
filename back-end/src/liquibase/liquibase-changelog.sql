@@ -1,33 +1,30 @@
 --liquibase formatted sql
 				
---changeset kittnarf:person-create-01
-create table person (  
-    id uuid primary key,
-    name varchar(255) not null,
-    age smallint null,
-    active boolean not null,
-    created timestamp with time zone default current_timestamp not null,
-    last_modified timestamp null
-);  
---rollback drop table person; 
+--changeset kittnarf:todo-create-01
+CREATE TABLE todo(
+   id uuid primary key not null,
+   description text not null,
+   completed boolean default false
+)
+--rollback drop table todo; 
 
---changeset kittnarf:person-insert-01
-insert into person
-(id, name, age, active)
+--changeset kittnarf:todo-insert-01
+insert into todo
+(id, description)
 values
-('cfba3b8e-4fe2-4436-ac9b-0d1d507624e9', 'John Doe', 37, true);
---rollback delete from person where id = 'cfba3b8e-4fe2-4436-ac9b-0d1d507624e9'; 
+('cfba3b8e-4fe2-4436-ac9b-0d1d507624e9', 'Implement ReScript BE');
+--rollback delete from todo where id = 'cfba3b8e-4fe2-4436-ac9b-0d1d507624e9'; 
 
---changeset kittnarf:person-insert-02
-insert into person
-(id, name, age, active)
+--changeset kittnarf:todo-insert-02
+insert into todo
+(id, description)
 values
-('5274091f-7da6-4876-a947-19bf829a7825', 'Francis Blake', 24, false);
---rollback delete from person where id = '5274091f-7da6-4876-a947-19bf829a7825'; 
+('5274091f-7da6-4876-a947-19bf829a7825', 'Implement ReScript FE');
+--rollback delete from todo where id = '5274091f-7da6-4876-a947-19bf829a7825'; 
 
---changeset kittnarf:person-insert-03
-insert into person
-(id, name, age, active)
+--changeset kittnarf:todo-insert-03
+insert into todo
+(id, description, completed)
 values
-('acac2f61-d7b6-4e52-81c0-5c71663fbc99', 'Lucy Liu', null, true);
---rollback delete from person where id = 'acac2f61-d7b6-4e52-81c0-5c71663fbc99'; 
+('acac2f61-d7b6-4e52-81c0-5c71663fbc99', 'Create database', true);
+--rollback delete from todo where id = 'acac2f61-d7b6-4e52-81c0-5c71663fbc99'; 

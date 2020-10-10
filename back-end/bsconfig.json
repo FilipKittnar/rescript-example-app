@@ -16,7 +16,12 @@
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": ["bs-express", "@glennsl/bs-json"],
+  "bs-dependencies": [
+    "bs-express",
+    "@glennsl/bs-json",
+    "bs-winston",
+    "bs-cors"
+  ],
   "ppx-flags": [],
   "refmt": 3
 }

@@ -10,9 +10,9 @@ let liquibase = ResLiquibase.liquibase({
 })
 
 let update = () => ResLiquibase.run(liquibase, #update, ()) |> then_(() => {
-    Js.log("Liquibase updare finished successfully")
+    "Liquibase updare finished successfully"->Logger.info
     resolve()
   }) |> catch(error => {
-    Js.log2("Liquibase updare failed", error)
+    "Liquibase updare failed"->Logger.error
     resolve()
   }) |> ignore
