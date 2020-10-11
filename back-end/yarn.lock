@@ -103,6 +103,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bs-guid@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "bs-guid@npm:1.0.1"
+  dependencies:
+    uuid: ^3.3.2
+  checksum: 62df8c11bcd79ed3a3287f56e391c075f8498fefb36fd95aae284bafeb151b3e0c2ea0882f49c438529b249386e3c965d65efff9f0fc743f51ed6694c95bfd11
+  languageName: node
+  linkType: hard
+
 "bs-platform@npm:^8.2.0":
   version: 8.2.0
   resolution: "bs-platform@npm:8.2.0"
@@ -907,6 +916,7 @@ __metadata:
     "@glennsl/bs-json": ^5.0.2
     bs-cors: ^0.0.4
     bs-express: ^1.0.2
+    bs-guid: ^1.0.1
     bs-platform: ^8.2.0
     bs-winston: ^0.6.2
     compression: ^1.7.4
@@ -1116,6 +1126,15 @@ __metadata:
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: a457956ebc09efbda05da8bf213ab89140bb9dffa3c42b3315dd8fc3c45d67a1b802741f58b7bba4872113201fc275fc86470289d8bd32b74297b5e5b5980705
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^3.3.2":
+  version: 3.4.0
+  resolution: "uuid@npm:3.4.0"
+  bin:
+    uuid: ./bin/uuid
+  checksum: 1ce3f37e214d6d0dc94a6a9663a0365013ace66bc3fd5b203e6f5d2eeb978aaee1192367222386345d30b4c6a447928c501121aa84c637724bf105ef57284949
   languageName: node
   linkType: hard
 

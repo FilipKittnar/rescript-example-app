@@ -71,7 +71,7 @@ module Todos = {
     switch Request.bodyJSON(req) {
     | None => reject(Failure("INVALID REQUEST"))
     | Some(reqJson) =>
-      switch reqJson |> Json.Decode.field("MESSAGE", Json.Decode.optional(Json.Decode.string)) {
+      switch reqJson |> Json.Decode.field("message", Json.Decode.optional(Json.Decode.string)) {
       | exception e => reject(e)
       | None => reject(Failure("INVALID MESSAGE"))
       | Some(msg) => DataAccess.Todos.create(msg)

@@ -20,7 +20,8 @@
     "bs-express",
     "@glennsl/bs-json",
     "bs-winston",
-    "bs-cors"
+    "bs-cors",
+    "bs-guid"
   ],
   "ppx-flags": [],
   "refmt": 3

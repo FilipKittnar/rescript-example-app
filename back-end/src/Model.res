@@ -1,5 +1,3 @@
-@bs.module("uuid") external uuidv4: unit => string = "v4"
-
 module Todo: {
   type t
   let make: (string, string, bool) => t
@@ -26,7 +24,7 @@ module Todo: {
     description: description,
     completed: completed,
   }
-  let makeNew = description => make(uuidv4(), description, false)
+  let makeNew = description => make(Uuid.V4.uuidv4(), description, false)
 
   let getId = todo => todo.id
   let getDescription = todo => todo.description

@@ -25,5 +25,21 @@ module Todos = {
 
   let update = (id, description, completed) => make((~resolve, ~reject) => ())
 
-  let create = description => make((~resolve, ~reject) => ())
+  let create = description => {
+    let todo = Model.Todo.makeNew(description)
+    let jsonTodo = Js.Dict.empty()
+    jsonTodo->Js.Dict.set("id", todo->Model.Todo.getId->Js.Json.string)
+    jsonTodo->Js.Dict.set("description", todo->Model.Todo.getDescription->Js.Json.string)
+    Database.database->ResPgPromise.none(
+      "insert into todo (id, description) values(${id}, ${description})",
+      jsonTodo,
+    )
+    |> then_(() => {
+      resolve()
+    })
+    |> catch(error => {
+      Js.log2("Failed to insert new Person to data source", error)
+      resolve()
+    })
+  }
 }
