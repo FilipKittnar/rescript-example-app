@@ -40,11 +40,10 @@ module Todo: {
     {...todo, completed: false}
   }
 
-  let bool_of_int = value => value === 1
   let fromJson = json => {
-    id: json |> Json.Decode.field("ID", Json.Decode.string),
-    description: json |> Json.Decode.field("DESCRIPTION", Json.Decode.string),
-    completed: json |> Json.Decode.field("COMPLETED", Json.Decode.int) |> bool_of_int,
+    id: json |> Json.Decode.field("id", Json.Decode.string),
+    description: json |> Json.Decode.field("description", Json.Decode.string),
+    completed: json |> Json.Decode.field("completed", Json.Decode.bool),
   }
 
   let fromString = jsonString =>
@@ -59,7 +58,7 @@ module Todo: {
       ("description", Json.Encode.string(todo.description)),
       ("completed", Json.Encode.bool(todo.completed)),
     })
-  let toString = todo => toJson(todo) |> Js.Json.stringify
+  let toString = todo => toJson(todo)->Js.Json.stringify
 }
 
 module Todos: {
@@ -106,5 +105,5 @@ module Todos: {
 
   let toJson = todos =>
     Array.of_list(todos) |> Array.map(item => Todo.toJson(item)) |> Json.Encode.jsonArray
-  let toString = todos => toJson(todos) |> Js.Json.stringify
+  let toString = todos => toJson(todos)->Js.Json.stringify
 }

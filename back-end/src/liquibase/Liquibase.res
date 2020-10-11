@@ -12,7 +12,7 @@ let liquibase = ResLiquibase.liquibase({
 let update = () => ResLiquibase.run(liquibase, #update, ()) |> then_(() => {
     "Liquibase updare finished successfully"->Logger.info
     resolve()
-  }) |> catch(error => {
+  }) |> catch(_ => {
     "Liquibase updare failed"->Logger.error
     resolve()
   }) |> ignore
