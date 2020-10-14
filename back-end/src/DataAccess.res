@@ -13,7 +13,7 @@ module Todos = {
       })
       resolve(todoObjects)
     }) |> catch(error => {
-      Js.log2("Failed to get TODOs from data source", error)
+      error->Logger.error
       resolve(Js.Json.null->Model.Todos.fromJson)
     })
   }
@@ -38,7 +38,7 @@ module Todos = {
       resolve()
     })
     |> catch(error => {
-      Js.log2("Failed to insert new Person to data source", error)
+      error->Logger.error
       resolve()
     })
   }

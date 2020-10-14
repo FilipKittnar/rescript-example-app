@@ -4,11 +4,11 @@ let onListen = e =>
     switch Js.Exn.message(e) {
     | None => "UNKNOWN ERROR"
     | Some(msg) => msg
-    } |> Logger.error
+    }->Logger.error
     Node.Process.exit(1)
   | _ => {
       Liquibase.update()
-      "Listening at http://localhost:8080" |> Logger.info
+      "Listening at http://localhost:8080"->Logger.info
     }
   }
 

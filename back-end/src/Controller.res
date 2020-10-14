@@ -53,8 +53,8 @@ module Todos = {
       |> Response.sendJson(Json.Encode.object_(list{("text", Json.Encode.string("Updated todo"))}))
       |> resolve
     })
-    |> catch(err => {
-      Js.log(err)
+    |> catch(error => {
+      error->Logger.error
 
       rep
       |> Response.setHeader("Status", "400")
@@ -83,8 +83,8 @@ module Todos = {
       |> Response.sendJson(Json.Encode.object_(list{("text", Json.Encode.string("Created todo"))}))
       |> resolve
     })
-    |> catch(err => {
-      Js.log(err)
+    |> catch(error => {
+      error->Logger.error
       rep
       |> Response.setHeader("Status", "400")
       |> Response.sendJson(

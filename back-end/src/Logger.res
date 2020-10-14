@@ -24,10 +24,7 @@ let logger =
   ->B.addTransport(T.createConsole())
   ->B.build
 
-let log: (L.t => L.t, string) => unit = (loggerLevel, message) =>
-  logger->loggerLevel->L.withMessage(message)->L.log
-
-let debug = log(L.debug)
-let info = log(L.info)
-let warn = log(L.warn)
-let error = log(L.error)
+let debug = any => logger->L.debug->L.withMessage(any)->L.log
+let info = any => logger->L.info->L.withMessage(any)->L.log
+let warn = any => logger->L.warn->L.withMessage(any)->L.log
+let error = any => logger->L.logErrorMsg(any)
